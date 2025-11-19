@@ -6,6 +6,7 @@ Regno: 250000033
 Using: Groq API with Streamlit
 """
 
+
 import streamlit as st
 from groq import Groq
 import os
@@ -34,12 +35,14 @@ st.divider()
 # API KEY SETUP
 # ============================================
 
-# Try to get API key from Streamlit secrets (for deployment)
-# or from environment variable (for local testing)
-try:
-    api_key = st.secrets["GROQ_API_KEY"]
-except:
-    api_key = os.getenv("GROQ_API_KEY", "")
+# Get API key from environment variable or Streamlit secrets
+api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    try:
+        api_key = st.secrets["GROQ_API_KEY"]
+    except:
+        pass
 
 # If no API key found, show input box
 if not api_key:
@@ -49,15 +52,25 @@ if not api_key:
         st.info("👆 Get your free API key at: https://console.groq.com")
         st.stop()
 
-# Initialize Groq client
+# Initialize Groq client (fixed for Render compatibility)
 try:
     client = Groq(api_key=api_key)
 except Exception as e:
     st.error(f"Error initializing Groq client: {e}")
-    st.stop()
+    st.info("Trying alternative initialization...")
+    try:
+        # Alternative initialization without proxies
+        import httpx
+        client = Groq(
+            api_key=api_key,
+            http_client=httpx.Client()
+        )
+    except Exception as e2:
+        st.error(f"Alternative initialization failed: {e2}")
+        st.stop()
 
 # ============================================
-# LOGGING FUNCTION (DEFINED EARLY!)
+# LOGGING FUNCTION
 # ============================================
 
 def log_interaction(question, answer):
@@ -76,10 +89,10 @@ def log_interaction(question, answer):
             f.write(f"Question: {question}\n")
             f.write(f"Answer: {answer}\n")
     except:
-        pass  # Silently fail if logging doesn't work
+        pass
 
 # ============================================
-# SESSION STATE (TO SAVE CONVERSATION HISTORY)
+# SESSION STATE
 # ============================================
 
 if "messages" not in st.session_state:
