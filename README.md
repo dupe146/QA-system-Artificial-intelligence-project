@@ -45,7 +45,6 @@ This is an AI-powered question-answering web application that uses the Groq API 
 
 ### Author
 **Student Name:** Jimoh_Alabi Islamiat Modupeoluwa 
-**Student ID:** 250000033 
 **Program:** Masters in Bioinformatics  
 **Course:** Artificial Intelligence 
 
