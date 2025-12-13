@@ -42,6 +42,10 @@ This is an AI-powered question-answering web application that uses the Groq API 
 2. Install dependencies: `pip install -r requirements.txt`
 3. Create `.streamlit/secrets.toml` with your Groq API key
 4. Run: `streamlit run app.py`
+   
+### Deployed on Render: 
+https://qa-system-artificial-intelligence-project.onrender.com/
+
 
 ### Author
 **Student Name:** Jimoh_Alabi Islamiat Modupeoluwa 
