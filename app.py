@@ -1,8 +1,7 @@
 """
-Assignment 1: AI Question-Answering System
-Student: Jimoh-Alabi Islamiat modupeoluwa
+Project: AI Question-Answering System
+Name: Jimoh-Alabi Islamiat modupeoluwa
 Course: Artificial Intelligence
-Regno: 250000033
 Using: Groq API with Streamlit
 """
 
@@ -28,7 +27,7 @@ st.set_page_config(
 
 st.title("🤖 AI Question-Answering System")
 st.markdown("### Ask any question and get an AI-powered answer!")
-st.markdown("*Powered by Groq AI - Built for Bioinformatics Assignment 1*")
+st.markdown("*Powered by Groq AI*")
 st.divider()
 
 # ============================================
