@@ -48,14 +48,13 @@ https://qa-system-artificial-intelligence-project.onrender.com/
 
 
 ### Author
-**Student Name:** Jimoh_Alabi Islamiat Modupeoluwa 
+**Name:** Islamiat Modupeoluwa 
 **Program:** Masters in Bioinformatics  
 **Course:** Artificial Intelligence 
 
 ### Acknowledgments
 - Groq for providing the free AI API
 - Streamlit for the web framework
-- Lecturer: Dr Odunayo Osofuye
 
 ### License
 Educational project for academic purposes.
